@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title>{{pet.name}}</title>
+{% endblock title %}
+
+{% block content %}
+<br>
+<h2>{{pet.name}}</h2>
+<img class="img-fluid" src="{{pet.photo.url}}" alt="{{pet.name}}">
+<p>Age: {{pet.age}}</p>
+<p>Price: {{pet.price}}</p>
+<div class="row text-center">
+	<div class="col-md-6">
+		<a href="{% url 'pet-update' pet.id %}" style="margin-bottom:10px" class="btn btn-outline-primary btn-block">Update</a>
+	</div>
+	<div class="col-md-6">
+		<a href="{% url 'pet-delete' pet.id %}" class="btn btn-outline-danger btn-block">Delete</a>
+	</div>
+</div>
+
+
+{% endblock content %}
